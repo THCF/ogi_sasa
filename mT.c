@@ -11,11 +11,11 @@ int main()
 		printf("Please enter the number of triangles to check: " );
 		//scanf("%d",&triangle_input);
 		if(scanf("%d",&triangle_input) == EOF )
-		{
+		{     printf("\n ");
 			break;
 		}
 		
-		if((triangle_input <1|| triangle_input > UCHAR_MAX))
+// 		if((triangle_input <1|| triangle_input > UCHAR_MAX))4
 		{
 			 printf("[ERR] Invalid number of triangles.\n");
 			 
