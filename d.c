@@ -2,19 +2,21 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <stdbool.h>
 #include <limits.h>
-
-
-bool isINT(char *input)
-{
+#include <stdbool.h>
+#define ERROR_MESSAGE "[ERR] Invalid number of triangles.\n"
+int isINT(char *input)
+{	
+	
  
-  int length_of_input = (int) strlen(input) - 1;
-  for (int i = 0; i < length_of_input; ++i)
+  int length_of_input = strlen(input) - 1;
+  for (int counter = 0; counter < length_of_input; counter++)
   {
-    if (!isdigit(input[i])) 
+    if (!isdigit(input[counter])) 
     {
-      return false;
+	  _Bool x = false;
+	  return x;
+      
     }
   }
   return true;
@@ -38,32 +40,25 @@ int brojTrouglovaF()
       return 0;
     }
 
-    if (raw_input_array[0] == '0')
+    if ((raw_input_array[0] == '0') || (raw_input_array[0] == '\n'))
     {
-      printf("err\n");
+      printf(ERROR_MESSAGE);
       continue;
     }
-
-    if (raw_input_array[0] == '\n')
-    {
-      printf("err\n");
-      continue;
-    }
-
      
     if (isINT(raw_input_array))
     {
       brT = atoi(raw_input_array);
       if (brT > UCHAR_MAX)
       {
-        printf("err\n");
+        printf(ERROR_MESSAGE);
         continue;
       }
       flag = 0;
     }
     else
     {
-      printf("err\n");
+      printf(ERROR_MESSAGE);
       continue;
     }
   }
@@ -74,7 +69,7 @@ int brojTrouglovaF()
 int main()
 {
 	int d= brojTrouglovaF();
-	printf(" da li je %d",d);
+	
 
 
 return 0;
